@@ -22,11 +22,6 @@ jobs:
         modules: 'qtbase'
         arch: 'x64'
         
-    - name: Setup CMake
-      uses: cmake-actions/setup-cmake@v1
-      with:
-        cmake-version: 'latest'
-      
     - name: Configure CMake
       run: |
         cmake -B build -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Release
