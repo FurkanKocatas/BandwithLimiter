@@ -2,14 +2,8 @@ cmake_minimum_required(VERSION 3.16)
 project(BandwidthThrottler VERSION 1.0.0 LANGUAGES CXX)
 
 # Windows-only application
-# Allow cross-compilation from Linux
-if(NOT WIN32 AND NOT CMAKE_CROSSCOMPILING)
-    # Check if we're trying to cross-compile
-    if(CMAKE_SYSTEM_NAME STREQUAL "Windows" OR CMAKE_C_COMPILER MATCHES "mingw" OR CMAKE_CXX_COMPILER MATCHES "mingw")
-        set(CMAKE_CROSSCOMPILING TRUE)
-    else
-        message(FATAL_ERROR "This application only supports Windows. Please build on Windows or use cross-compilation with MinGW.")
-    endif()
+if(NOT WIN32)
+    message(FATAL_ERROR "This application only supports Windows. Please build on a Windows machine.")
 endif()
 
 set(CMAKE_CXX_STANDARD 17)
