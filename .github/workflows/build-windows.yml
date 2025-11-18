@@ -21,10 +21,11 @@ jobs:
         version: '6.5.0'
         modules: 'qtbase'
         arch: 'x64'
+      id: qt
         
     - name: Configure CMake
       run: |
-        cmake -B build -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Release
+        cmake -B build -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Release -DQt6_DIR="${{ steps.qt.outputs.cmake_dir }}"
         
     - name: Build
       run: |
